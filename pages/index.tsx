@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import requests from '../utils/requests'
 import { Movie } from '../typings'
 import Row from '../components/Row'
+import useAuth from '../hooks/useAuth'
 
 interface Props {
   netflixOriginals: Movie[]
@@ -27,6 +28,11 @@ const Home = ({
   romanceMovies,
   documentaries
 }: Props) => {
+
+  const { loading, logout } = useAuth()
+
+  if (loading) return null
+
   return (
     // <div className="flex min-h-screen flex-col items-center justify-center py-2">
     <div className="relative h-screen lg:h-[140vh]">
@@ -64,6 +70,7 @@ const Home = ({
 
 export default Home
 
+// Fetch netflix shows, movie categories.
 export const getServerSideProps = async () => {
 
   const [
