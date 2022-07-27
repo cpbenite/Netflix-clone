@@ -27,8 +27,6 @@ function Row({ title, movies } : Props) {
     }
   }
 
-  console.log(rowRef.current?.scrollLeft, rowRef.current?.clientWidth)
-
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
       <h2 className="rowTitle">{title}</h2>
